@@ -27,7 +27,7 @@ public class SkeletonController {
         return "orders";
     }
 
-    @RequestMapping(value = "/api/orders/all", method = RequestMethod.GET)
+    @RequestMapping(value = "/api/orders/", method = RequestMethod.GET)
     public @ResponseBody List<Order> getOrders() {
         return connector.get();
     }

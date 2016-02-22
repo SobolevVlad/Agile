@@ -12,38 +12,42 @@
     <table id="orderTable">
         <thead>
         <tr>
-            <td>Name</td>
-            <td>Group</td>
-            <td>Balance</td>
-            <td>Description</td>
+            <td>Order UID</td>
+            <td>Item name</td>
+            <td>Timestamp</td>
+            <td>Quantity</td>
+            <td>Payment</td>
+            <td>Delivery address</td>
+            <td>Customer UID</td>
+            <td>Customer First Name</td>
+            <td>Customer Last Name</td>
+            <td>Customer Country</td>
+            <td>Customer Address</td>
         </tr>
         </thead>
         <tbody>
         </tbody>
     </table>
-    <table>
-        <c:forEach items="${requestScope.orders}" var="order">
-            <tr>
-                <td>${order.orderUid}</td>
-                <td>${order.deliveryAddress}</td>
-            </tr>
-        </c:forEach>
-    </table>
 </div>
 <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 <script>
     $(document).ready(function () {
-        $.getJSON('api/orders/all', function (data) {
-            console.log(data);
+        $('thead').on('click', function() {
+            $.getJSON('api/orders?columnName', function (data) {
+                $.each(data, function (k, arr) {
+                    $('#orderTable tbody').append('<tr><td>' + arr[1] + '</td><td>' + arr[0] + '</td><td>' + arr[0] +
+                            '</td><td>' + arr[0] + '</td><td>' + arr[0] + '</td><td>' + arr[0] + '</td><td>' + arr[0] +
+                            '</td><td>' + arr[0] + '</td><td>' + arr[0] + '</td><td>' + arr[0] + '</td><td>' + arr[0] +
+                            '</td><td>' + arr[0] + '</td></tr>');
+                });
+            });
+        });
+        $.getJSON('api/orders/', function (data) {
             $.each(data, function (k, arr) {
-                console.log(data);
-                console.log(k);
-                console.log(arr);
-                $('#orderTable tbody').append('<tr><td>' + k + '</td><td>' + arr[1] + '</td><td>' + arr.itemName +
-                        '</td><td>' + arr.timestamp + '</td><td>' + arr.quantity + '</td><td>' + arr.payment +
-                        '</td><td>' + arr.deliveryAddress + '</td><td>' + arr.customerUid + '</td><td>' + arr.customerFirstName +
-                        '</td><td>' + arr.customerLastName + '</td><td>' + arr.customerCountry +
-                        '</td><td>' + arr.customerCountry + '</td><td>' + arr.customerAddress + '</td></tr>');
+                $('#orderTable tbody').append('<tr><td>' + arr[1] + '</td><td>' + arr[0] + '</td><td>' + arr[0] +
+                        '</td><td>' + arr[0] + '</td><td>' + arr[0] + '</td><td>' + arr[0] + '</td><td>' + arr[0] +
+                        '</td><td>' + arr[0] + '</td><td>' + arr[0] + '</td><td>' + arr[0] + '</td><td>' + arr[0] +
+                        '</td><td>' + arr[0] + '</td></tr>');
             });
         });
     });
