@@ -41,14 +41,14 @@ public class ContextConfig {
 
     @PostConstruct
     public void loadData() {
-        List<OrderDto> orderDtos = fileConnector.loadData("C:\\Users\\admin\\Downloads\\AgileEngineSkeleton\\data.csv");
-        List<Order> orderses = new ArrayList<>();
+        List<OrderDto> orderDtos = fileConnector.loadData("data.csv");
+        List<Order> orders = new ArrayList<>();
         for (OrderDto dto : orderDtos) {
             Order destination = new Order();
             OrderTranslator.fromDto(dto, destination);
-            orderses.add(destination);
+            orders.add(destination);
         }
-        connector.insertValues(orderses);
+        connector.insertValues(orders);
     }
 
     @Bean(name = "dataSource")

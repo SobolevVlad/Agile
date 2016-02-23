@@ -28,6 +28,17 @@
         <tbody>
         </tbody>
     </table>
+
+    <table id="statsTable">
+        <thead>
+        <tr>
+            <td>Country</td>
+            <td>Sum of payments</td>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
 </div>
 <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 <script>
@@ -46,6 +57,12 @@
                 $('#orderTable tbody').append('<tr><td>' + arr[8] + '</td><td>' + arr[7] + '</td><td>' + arr[11] +
                         '</td><td>' + arr[10] + '</td><td>' + arr[9] + '</td><td>' + arr[1] + '</td><td>' + arr[5] +
                         '</td><td>' + arr[3] + '</td><td>' + arr[4] + '</td><td>' + arr[2] + '</td><td>' + arr[6] + '</td></tr>');
+            });
+        });
+
+        $.getJSON('/api/statistics/', function (data) {
+            $.each(data, function (k, arr) {
+                $('#statsTable tbody').append('<tr><td>' + arr[0] + '</td><td>' + arr[1] + '</td></tr>');
             });
         });
     });

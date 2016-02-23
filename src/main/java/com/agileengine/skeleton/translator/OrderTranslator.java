@@ -8,7 +8,7 @@ public class OrderTranslator {
     public static void fromDto(OrderDto source, Order destination) {
         destination.setOrderId(source.getOrderId());
         destination.setItemName(source.getItemName());
-        destination.setTime(source.getTimestamp());
+        destination.setOrderTime(source.getTimestamp());
         destination.setQuantity(source.getQuantity());
         destination.setPayment(source.getPayment());
         destination.setDeliveryAddress(source.getDeliveryAddress());
@@ -22,7 +22,7 @@ public class OrderTranslator {
     public static void toDto(Order source, OrderDto destination) {
         destination.setOrderId(source.getOrderId());
         destination.setItemName(source.getItemName());
-        destination.setTimestamp(source.getTime());
+        destination.setTimestamp(source.getOrderTime());
         destination.setQuantity(source.getQuantity());
         destination.setPayment(source.getPayment());
         destination.setDeliveryAddress(source.getDeliveryAddress());

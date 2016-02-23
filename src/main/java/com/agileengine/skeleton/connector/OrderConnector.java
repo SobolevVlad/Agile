@@ -1,7 +1,6 @@
 package com.agileengine.skeleton.connector;
 
 import com.agileengine.skeleton.model.Order;
-import com.agileengine.skeleton.model.Statistics;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,11 +10,9 @@ import java.util.List;
 @Transactional
 public interface OrderConnector {
 
-    public Long insert();
+    void insertValues(List<Order> values);
 
-    public void insertValues(List<Order> values);
-
-    public List<Order> get();
+    List<Order> get();
 
     List<Order> getSorted(String columnName);
 
@@ -23,5 +20,5 @@ public interface OrderConnector {
 
     List getSortedByPage(String columnName, int offset, int limit);
 
-    List<Statistics> getOrderStatistics();
+    List getOrderStatistics();
 }
