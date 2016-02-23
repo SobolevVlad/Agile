@@ -2,6 +2,7 @@ package com.agileengine.skeleton.connector.impl;
 
 import com.agileengine.skeleton.connector.OrderConnector;
 import com.agileengine.skeleton.model.Order;
+import com.agileengine.skeleton.model.Statistics;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -73,7 +74,9 @@ public class OrderConnectorImpl implements OrderConnector {
         return criteria.list();
     }
 
-    public List<Order> getOrderStatistics() {
-        return  sessionFactory.getCurrentSession().createSQLQuery("Select customerCountry, sum(payment) from ORDERS HAVING TIME >=  '20150701'").list();
+    public List<Statistics> getOrderStatistics() {
+        String query = "Select customerCountry, sum(payment) from ORDERS HAVING TIME >=  '20150701'";
+        List list = sessionFactory.getCurrentSession().createSQLQuery(query).list();
+        return list;
     }
 }

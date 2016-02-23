@@ -2,6 +2,7 @@ package com.agileengine.skeleton.controller;
 
 import com.agileengine.skeleton.connector.OrderConnector;
 import com.agileengine.skeleton.model.Order;
+import com.agileengine.skeleton.model.Statistics;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -42,8 +43,8 @@ public class OrderController {
         return connector.getSortedByPage(columnName, offset, limit);
     }
 
-    @RequestMapping(value = "/api/orders/", method = RequestMethod.GET)
-    public @ResponseBody List<Order> getOrderStatistics() {
+    @RequestMapping(value = "/api/statistics/", method = RequestMethod.GET)
+    public @ResponseBody List<Statistics> getOrderStatistics() {
         return connector.getOrderStatistics();
     }
 }

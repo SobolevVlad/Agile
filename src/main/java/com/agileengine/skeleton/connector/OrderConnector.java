@@ -1,6 +1,7 @@
 package com.agileengine.skeleton.connector;
 
 import com.agileengine.skeleton.model.Order;
+import com.agileengine.skeleton.model.Statistics;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,5 +23,5 @@ public interface OrderConnector {
 
     List getSortedByPage(String columnName, int offset, int limit);
 
-    List<Order> getOrderStatistics();
+    List<Statistics> getOrderStatistics();
 }
