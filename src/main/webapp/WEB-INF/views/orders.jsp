@@ -35,19 +35,17 @@
         $('thead').on('click', function() {
             $.getJSON('api/orders?columnName', function (data) {
                 $.each(data, function (k, arr) {
-                    $('#orderTable tbody').append('<tr><td>' + arr[1] + '</td><td>' + arr[0] + '</td><td>' + arr[0] +
-                            '</td><td>' + arr[0] + '</td><td>' + arr[0] + '</td><td>' + arr[0] + '</td><td>' + arr[0] +
-                            '</td><td>' + arr[0] + '</td><td>' + arr[0] + '</td><td>' + arr[0] + '</td><td>' + arr[0] +
-                            '</td><td>' + arr[0] + '</td></tr>');
+                    $('#orderTable tbody').append('<tr><td>' + arr[8] + '</td><td>' + arr[7] + '</td><td>' + arr[11] +
+                            '</td><td>' + arr[10] + '</td><td>' + arr[9] + '</td><td>' + arr[1] + '</td><td>' + arr[5] +
+                            '</td><td>' + arr[3] + '</td><td>' + arr[4] + '</td><td>' + arr[2] + '</td><td>' + arr[6] + '</td></tr>');
                 });
             });
         });
-        $.getJSON('api/orders/', function (data) {
+        $.getJSON('/api/orders/', function (data) {
             $.each(data, function (k, arr) {
-                $('#orderTable tbody').append('<tr><td>' + arr[1] + '</td><td>' + arr[0] + '</td><td>' + arr[0] +
-                        '</td><td>' + arr[0] + '</td><td>' + arr[0] + '</td><td>' + arr[0] + '</td><td>' + arr[0] +
-                        '</td><td>' + arr[0] + '</td><td>' + arr[0] + '</td><td>' + arr[0] + '</td><td>' + arr[0] +
-                        '</td><td>' + arr[0] + '</td></tr>');
+                $('#orderTable tbody').append('<tr><td>' + arr[8] + '</td><td>' + arr[7] + '</td><td>' + arr[11] +
+                        '</td><td>' + arr[10] + '</td><td>' + arr[9] + '</td><td>' + arr[1] + '</td><td>' + arr[5] +
+                        '</td><td>' + arr[3] + '</td><td>' + arr[4] + '</td><td>' + arr[2] + '</td><td>' + arr[6] + '</td></tr>');
             });
         });
     });

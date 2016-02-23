@@ -21,4 +21,6 @@ public interface OrderConnector {
     List<Order> getWithOffsetAndLimit(int offset, int limit);
 
     List getSortedByPage(String columnName, int offset, int limit);
+
+    List<Order> getOrderStatistics();
 }

@@ -72,4 +72,8 @@ public class OrderConnectorImpl implements OrderConnector {
         criteria.addOrder(org.hibernate.criterion.Order.desc(columnName));
         return criteria.list();
     }
+
+    public List<Order> getOrderStatistics() {
+        return  sessionFactory.getCurrentSession().createSQLQuery("Select customerCountry, sum(payment) from ORDERS HAVING TIME >=  '20150701'").list();
+    }
 }

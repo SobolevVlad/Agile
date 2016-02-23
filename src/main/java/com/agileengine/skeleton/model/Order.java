@@ -17,7 +17,7 @@ public class Order implements Serializable{
 
     private String itemName;
 
-    private Date timestamp;
+    private Date time;
 
     private int quantity;
 
@@ -42,7 +42,7 @@ public class Order implements Serializable{
                  String customerAddress) {
         this.orderId = orderId;
         this.itemName = itemName;
-        this.timestamp = timestamp;
+        this.time = timestamp;
         this.quantity = quantity;
         this.payment = payment;
         this.deliveryAddress = deliveryAddress;
@@ -69,12 +69,12 @@ public class Order implements Serializable{
         this.itemName = itemName;
     }
 
-    public Date getTimestamp() {
-        return timestamp;
+    public Date getTime() {
+        return time;
     }
 
-    public void setTimestamp(Date timestamp) {
-        this.timestamp = timestamp;
+    public void setTime(Date timestamp) {
+        this.time = timestamp;
     }
 
     public int getQuantity() {
